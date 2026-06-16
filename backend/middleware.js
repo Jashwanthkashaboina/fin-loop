@@ -1,9 +1,21 @@
-module.exports.isLoggedIn = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
-  }
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-  res.status(401).json({
-    error: "You must be logged in",
-  });
-};
+module.exports.verifyToken = async(req, res, next) =>{
+    const authHeader = req.headers.authorization;
+
+    if(!authHeader) {
+        console.log("Access Denied! Token required");
+        return res.status(401).json({ message: "Access Denied!" });
+    }
+    
+    const token = authHeader.split(" ")[1];
+    try{
+        const verified = jwt.verify(token, process.env.JWT_SECRET);
+        req.user =  verified; // save user info for later use
+        next();
+    } catch(err){
+        return res.status(400).json({ message: "Invalid Token!" });
+    }
+
+}
