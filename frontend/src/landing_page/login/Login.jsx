@@ -14,18 +14,19 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, {
         username,
         password,
       });
+      localStorage.setItem("token", res.data.token);
+      // if (res.data.user.lastLogin) {
+      //   toast.success(
+      //     `Welcome back, ${res.data.user.username}! \n  Last login: ${new Date(res.data.user.lastLogin).toLocaleString()}`
+      //   );
+      // } 
+      // toast.success(`Welcome, ${res.data.user.username}!`);
+      toast.success('Welcome! Login Successful');
 
-      if (res.data.user.lastLogin) {
-        toast.success(
-          `Welcome back, ${res.data.user.username}! \n  Last login: ${new Date(res.data.user.lastLogin).toLocaleString()}`
-        );
-      } else {
-        toast.success(`Welcome, ${res.data.user.username}!`);
-      }
       await fetchUser();   //  update global auth state
       navigate("/");       // stay on landing page
     } catch (err) {

@@ -15,7 +15,7 @@ function SignUp() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, {
         username,
         email,
         password,

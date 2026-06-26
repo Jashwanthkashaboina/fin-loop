@@ -19,10 +19,6 @@ const signUp = async (req, res) =>{
         });
 
         await newUser.save();
-        
-        // // Cache Invalidation
-        // await redisClient.del('users');
-        // console.log('Users cache Invalidated');
 
         return res.status(201).json({ message: "User Created Successfully!" });
 
@@ -39,7 +35,7 @@ const login = async (req, res) =>{
         const loginValue = username || email;
 
         if(!loginValue || !password) {
-            return res.status(400).json({ message: "Invalid username / password" });
+            return res.status(400).json({ message: "Invalid username or password" });
         } 
 
         
@@ -75,21 +71,8 @@ const login = async (req, res) =>{
 
 const getUsers = async(req, res) =>{
     try{
-        // const cachedUsers = await redisClient.get('users');
-        // if(cachedUsers){
-        //     console.log('Cache HIT');
-        //     return res.status(200).json(JSON.parse(cachedUsers));
-        // }
-
-        // console.log('Cache MISS');
 
         const users = await User.find().select('-password');
-
-        // await redisClient.setEx(
-        //     "users",
-        //     60, // Time to Live (TTL)
-        //     JSON.stringify(users),
-        // );
 
         return res.status(200).json({ users });
 

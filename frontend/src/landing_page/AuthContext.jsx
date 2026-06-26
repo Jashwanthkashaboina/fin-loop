@@ -8,6 +8,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const fetchUser = async () => {
+    const token = localStorage.getItem("token");
     if (!import.meta.env.VITE_API_URL) {
       setUser(null);
       setLoading(false);
@@ -15,12 +16,14 @@ export function AuthProvider({ children }) {
     }
 
     try {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/me`);
-      if (res.data.loggedIn) {
-        setUser(res.data.user);
-      } else {
-        setUser(null);
-      }
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_URL}/auth/me`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+    );
+      setUser(res.data);
     } catch {
       setUser(null);
     } finally {
