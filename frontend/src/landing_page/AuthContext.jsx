@@ -8,6 +8,12 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const fetchUser = async () => {
+    if (!import.meta.env.VITE_API_URL) {
+      setUser(null);
+      setLoading(false);
+      return;
+    }
+
     try {
       const res = await axios.get(`${import.meta.env.VITE_API_URL}/me`);
       if (res.data.loggedIn) {
@@ -15,12 +21,13 @@ export function AuthProvider({ children }) {
       } else {
         setUser(null);
       }
-    } catch (err) {
+    } catch {
       setUser(null);
     } finally {
       setLoading(false);
     }
   };
+
 
   useEffect(() => {
     fetchUser();

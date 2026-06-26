@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
@@ -85,11 +85,11 @@ const getUsers = async(req, res) =>{
 
         const users = await User.find().select('-password');
 
-        await redisClient.setEx(
-            "users",
-            60, // Time to Live (TTL)
-            JSON.stringify(users),
-        );
+        // await redisClient.setEx(
+        //     "users",
+        //     60, // Time to Live (TTL)
+        //     JSON.stringify(users),
+        // );
 
         return res.status(200).json({ users });
 
@@ -117,5 +117,11 @@ const getUserById = async(req, res) =>{
     }
 };
 
+const getCurrentUser = async (req, res) => {
+    const user = await User.findById(req.user.id)
+        .select("-password");
 
-module.exports = { signUp, login, getUsers, getUserById };
+    res.status(200).json(user);
+};
+
+module.exports = { signUp, login, getUsers, getUserById, getCurrentUser };

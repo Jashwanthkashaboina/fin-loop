@@ -3,18 +3,25 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-const userRoutes = require('./routes/user.js');
+const userRoutes = require('./routes/authRoutes.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/users', userRoutes);
+app.use('/auth', userRoutes);
 
 mongoose.connect(process.env.MONGO_URL)
     .then(() =>{
         console.log('Connected to Database');
     }).catch((err) =>{
-        console.log('Database connection Error : ', err)
+        console.log('Database connection Error : ', err);
     });
+
+
+app.get('/health', (req, res) => {
+    res.status(200).json({
+        status: 'OK'
+    });
+});
 
 app.listen(8080, () => {
     console.log('Server listening on PORT 8080');
