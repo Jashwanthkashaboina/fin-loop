@@ -6,7 +6,7 @@ import { useState,useEffect } from "react";
 function Positions() {
     // Now, fetch the data
     const [allPositions, setallPositions] = useState([]);
-    // axios is the package will help use to connect to the package
+   
     useEffect(() =>{
         axios.get(`${import.meta.env.VITE_API_URL}/allpositions`)
             .then((res) =>{
