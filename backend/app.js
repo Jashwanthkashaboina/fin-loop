@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const userRoutes = require('./routes/authRoutes.js');
+const orderRoutes = require('./routes/orderRoutes.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -13,7 +14,14 @@ app.use(cors({
     credentials: true,
 }));
 
+app.use((req, res, next) => {
+    console.log(req.method, req.url);
+    console.log("Content-Type:", req.headers["content-type"]);
+    next();
+});
+
 app.use('/auth', userRoutes);
+app.use('/orders', orderRoutes);
 
 mongoose.connect(process.env.MONGO_URL)
     .then(() =>{
@@ -21,6 +29,9 @@ mongoose.connect(process.env.MONGO_URL)
     }).catch((err) =>{
         console.log('Database connection Error : ', err);
     });
+
+
+
 
 
 app.get('/health', (req, res) => {
