@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { placeOrder } = require('../controllers/orderController');
+const { placeOrder, sellOrder } = require('../controllers/orderController');
 const { verifyToken } = require('../middleware');
 
-// Enable verifyToken before production
-router.post('/', placeOrder);
+// === Enable verifyToken before production === //
 // router.post('/', verifyToken, placeOrder);
+// router.post("/sell", verifyToken, sellOrder);
+
+
+router.post('/buy', placeOrder);
+router.post('/sell', sellOrder);
 
 
 
