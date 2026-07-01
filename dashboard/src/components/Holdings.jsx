@@ -3,7 +3,7 @@
 // Instead of reading data from file. We'll fetch data from api that we created in 
 // backend "/allholdings". For that we use react "hooks" and useState all these !
 
-import axios from 'axios';
+import api from "../api/axios";
 import { useState, useEffect, useContext } from "react";
 import { VerticalGraph } from './VerticalGraph';
 import GeneralContext from './GeneralContext';
@@ -18,7 +18,7 @@ function Holdings() {
     const [allHoldings, setallHoldings] = useState([]);
     // axios is the package will help use to connect to the package
     useEffect(() =>{
-        axios.get(`${import.meta.env.VITE_API_URL}/holdings`)
+        api.get('/holdings')
             .then((res) =>{
                 // console.log("Working !");
                 setallHoldings(res.data);
