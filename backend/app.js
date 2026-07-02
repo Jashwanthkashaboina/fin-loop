@@ -7,6 +7,7 @@ const cors = require('cors');
 const userRoutes = require('./routes/authRoutes.js');
 const orderRoutes = require('./routes/orderRoutes.js');
 const holdingRoutes = require("./routes/holdingRoutes");
+const summaryRoutes = require('./routes/summaryRoutes.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
 app.use('/auth', userRoutes);
 app.use('/orders', orderRoutes);
 app.use("/holdings", holdingRoutes);
+app.use("/summary", summaryRoutes);
 
 mongoose.connect(process.env.MONGO_URL)
     .then(() =>{
