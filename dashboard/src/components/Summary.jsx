@@ -1,4 +1,25 @@
+import { useEffect, useState } from "react";
+import api from "../api/axios";
+
+
 function Summary() {
+    const [summary, setSummary] = useState({
+        totalInvestment: 0,
+        currentValue: 0,
+        pnl: 0,
+        pnlPercent: 0,
+    });
+
+    useEffect(() => {
+        api.get("/summary")
+            .then((res) => {
+                setSummary(res.data);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    }, []);
+
     return ( 
         <>
             <div className="username">
@@ -28,17 +49,32 @@ function Summary() {
                 <span> <p>Holdings (13)</p> </span>
 
                 <div className="data">
-                <div className="first">
-                    <h3 className="profit"> 1.55k <small>+5.20%</small>{" "} </h3>
-                    <p> P&L </p>
-                </div>
-                <hr />
+                    <div className="first">
+                        <h3 className={summary.pnl >= 0 ? "profit" : "loss"}>
+                            {summary.pnl.toFixed(2)}
+                            <small>
+                                {summary.pnlPercent.toFixed(2)}%
+                            </small>
+                        </h3>
 
-                <div className="second">
-                    <p> Current Value <span>31.43k</span>{" "} </p>
-                    <p> Investment <span>29.88k</span>{" "} </p>
+                        <p>P&amp;L</p>
+                    </div>
+
+                    <hr />
+
+                    <div className="second">
+                        <p>
+                            Current Value
+                            <span>{summary.currentValue.toFixed(2)}</span>
+                        </p>
+
+                        <p>
+                            Investment
+                            <span>{summary.totalInvestment.toFixed(2)}</span>
+                        </p>
+                    </div>
                 </div>
-                </div>
+
                 <hr className="divider" />
             </div>
         </>
