@@ -8,6 +8,7 @@ const userRoutes = require('./routes/authRoutes.js');
 const orderRoutes = require('./routes/orderRoutes.js');
 const holdingRoutes = require("./routes/holdingRoutes");
 const summaryRoutes = require('./routes/summaryRoutes.js');
+const watchlistRoutes = require("./routes/watchlistRoutes");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -26,6 +27,7 @@ app.use('/auth', userRoutes);
 app.use('/orders', orderRoutes);
 app.use("/holdings", holdingRoutes);
 app.use("/summary", summaryRoutes);
+app.use("/watchlist", watchlistRoutes);
 
 mongoose.connect(process.env.MONGO_URL)
     .then(() =>{
