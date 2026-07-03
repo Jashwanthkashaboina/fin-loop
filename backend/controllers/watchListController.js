@@ -6,7 +6,7 @@ module.exports.getWatchlist = async (req, res) => {
 
         const watchlist = await Watchlist.find({ userId });
 
-        console.log(watchlist);
+        // console.log(watchlist);
 
         return res.status(200).json(watchlist);
 

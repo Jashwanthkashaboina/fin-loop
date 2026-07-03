@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import api from "../api/axios";
 import { Link } from "react-router-dom";
 
 function Menu() {
   const [selectedMenu, setMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  const [user, setUser] = useState(null);
+
+  // Fetch curr user
+  useEffect(() => {
+    api.get("/auth/me")
+        .then((res) => {
+            setUser(res.data);
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+  }, []);
 
   const handleProfileClick = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
@@ -72,8 +85,13 @@ function Menu() {
         <hr />
 
         <div className="profile" onClick={handleProfileClick}>
-          <div className="avatar">ZU</div>
-          <p className="username">USERID</p>
+          <div className="avatar">
+              {user?.username?.substring(0, 2).toUpperCase() || "ZU"}
+          </div>
+
+          <p className="username">
+              {user?.username || "User"}
+          </p>
         </div>
       </div>
     </div>
