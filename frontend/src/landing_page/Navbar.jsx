@@ -1,38 +1,37 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useContext } from "react";
 import { AuthContext } from "./AuthContext";
-import axios from "axios";
 import toast from "react-hot-toast";
-import ProtectedRoute from "./ProtectedRoute";
 
 function Navbar() {
   const navigate = useNavigate();
-  const { user, loading, fetchUser } = useContext(AuthContext);
+
+  const { user, loading, setUser } = useContext(AuthContext);
 
   if (loading) {
-  return (
-    <div className="p-3 text-center">
-      Loading...
-    </div>
+    return (
+      <div className="p-3 text-center">
+        Loading...
+      </div>
     );
   }
 
-  const handleLogout = async () => {
-    try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/logout`);
-      toast.success(res.data.message);
-      await fetchUser();          //  update auth state
-      navigate("/");
-    } catch (err) {
-      toast.error("Error logging out");
-    }
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+    toast.success("Logged out successfully");
+    navigate("/");
   };
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
       <div className="container p-2">
         <Link className="navbar-brand" to="/">
-          <img src="media/images/logo.svg" alt="LOGO" style={{ width: "25%" }} />
+          <img
+            src="media/images/logo.svg"
+            alt="LOGO"
+            style={{ width: "25%" }}
+          />
         </Link>
 
         <button
@@ -52,6 +51,7 @@ function Navbar() {
                 <li className="nav-item">
                   <Link className="nav-link" to="/signup">Signup</Link>
                 </li>
+
                 <li className="nav-item">
                   <Link className="nav-link" to="/login">Login</Link>
                 </li>
@@ -61,13 +61,14 @@ function Navbar() {
             {user && (
               <>
                 <li className="nav-item">
-                    <a
-                      className="nav-link"
-                      href={`${import.meta.env.VITE_DASHBOARD_URL}`}
-                    >
-                      Dashboard
-                    </a>
+                  <a
+                    className="nav-link"
+                    href={import.meta.env.VITE_DASHBOARD_URL}
+                  >
+                    Dashboard
+                  </a>
                 </li>
+
                 <li className="nav-item">
                   <button
                     className="nav-link btn btn-link"
@@ -82,12 +83,15 @@ function Navbar() {
             <li className="nav-item">
               <Link className="nav-link" to="/about">About</Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/products">Products</Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/pricing">Pricing</Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/support">Support</Link>
             </li>
@@ -100,4 +104,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

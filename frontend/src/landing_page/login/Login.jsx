@@ -18,14 +18,10 @@ function Login() {
         username,
         password,
       });
+      
       localStorage.setItem("token", res.data.token);
-      // if (res.data.user.lastLogin) {
-      //   toast.success(
-      //     `Welcome back, ${res.data.user.username}! \n  Last login: ${new Date(res.data.user.lastLogin).toLocaleString()}`
-      //   );
-      // } 
-      // toast.success(`Welcome, ${res.data.user.username}!`);
-      toast.success('Welcome! Login Successful');
+    
+      toast.success(res.data.message);
 
       await fetchUser();   //  update global auth state
       navigate("/");       // stay on landing page

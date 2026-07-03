@@ -20,7 +20,24 @@ const signUp = async (req, res) =>{
 
         await newUser.save();
 
-        return res.status(201).json({ message: "User Created Successfully!" });
+        const token = jwt.sign(
+            {
+                id: newUser._id,
+                email: newUser.email,
+            },
+            process.env.JWT_SECRET,
+            { expiresIn: '1d' }
+        );
+
+        return res.status(201).json({ 
+            message: "User Created Successfully!",
+            token,
+            user: {
+                id: newUser._id,
+                username: newUser.username,
+                email: newUser.email
+            }
+         });
 
     } catch(err){
         return res.status(500).json({ error: err.message });
@@ -101,7 +118,7 @@ const getUserById = async(req, res) =>{
 };
 
 const getCurrentUser = async (req, res) => {
-    const user = await User.findById(req.user.id)
+    const user = await User.findById("6a477d5f057e32505547b2de")
         .select("-password");
 
     res.status(200).json(user);

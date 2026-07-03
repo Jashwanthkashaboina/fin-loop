@@ -13,7 +13,6 @@ function Home() {
     const checkAuth = async () => {
       try {
         console.log("checking auth");
-
         const res = await axios.get(
           `${import.meta.env.VITE_API_URL}/me`,
           {

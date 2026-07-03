@@ -23,8 +23,10 @@ function SignUp() {
 
       toast.success(`Welcome, ${res.data.user.username}!`); // ===user.username===
       await fetchUser();     //auto-login into context
-      navigate("/");        // stay on landing (LOCKED UX)
+      navigate("/");        
     } catch (err) {
+      console.log(err.response);
+      console.log(err.response?.data);
       toast.error(err.response?.data?.message || "Signup failed");
     }
   };
