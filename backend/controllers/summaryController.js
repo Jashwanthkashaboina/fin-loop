@@ -3,16 +3,9 @@ const Holding = require("../models/Holding");
 module.exports.getSummary = async (req, res) => {
     try {
         // const { userId } = req.body;
-        const userId = "685d1234567890abcdef5757";
-
+        const userId = req.user.id;
         const holdings = await Holding.find({ userId });
         console.log("Holdings:", holdings);
-        // console.log({
-        //     totalInvestment,
-        //     currentValue,
-        //     pnl,
-        //     pnlPercent,
-        // });
 
         let totalInvestment = 0;
         let currentValue = 0;

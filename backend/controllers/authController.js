@@ -118,7 +118,8 @@ const getUserById = async(req, res) =>{
 };
 
 const getCurrentUser = async (req, res) => {
-    const user = await User.findById("6a477d5f057e32505547b2de")
+    const userId = req.user.id;
+    const user = await User.findById(userId)
         .select("-password");
 
     res.status(200).json(user);
