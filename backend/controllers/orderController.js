@@ -5,7 +5,8 @@ module.exports.placeOrder = async(req, res) =>{
     try{
         console.log("Body:", req.body);
         // const userId = req.user.id;
-        const { userId, name, qty, price, mode } = req.body;
+        const userId = "6a477d5f057e32505547b2de";
+        const { name, qty, price, mode } = req.body;
         
         const newOrder = new Order({
             userId,
@@ -69,7 +70,8 @@ module.exports.placeOrder = async(req, res) =>{
 module.exports.sellOrder = async(req, res) =>{
     try{
         // const userId = req.user.id;
-        const { userId, name, qty, price, mode } = req.body;
+        const { name, qty, price, mode } = req.body;
+        const userId = "6a477d5f057e32505547b2de";
 
         const existingHolding = await Holding.findOne({
             userId,
