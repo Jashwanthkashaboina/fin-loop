@@ -38,7 +38,7 @@ function Home() {
         window.location.href =
           `${import.meta.env.VITE_DASHBOARD_URL}/login`;
     }
-};
+  };
 
     // checkAuth();
   }, []);

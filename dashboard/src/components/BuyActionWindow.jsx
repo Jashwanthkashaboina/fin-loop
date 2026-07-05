@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import GeneralContext from "./GeneralContext";
-import axios from "axios";
+import api from "../api/axios";
 import toast from "react-hot-toast";
 import "./BuyActionWindow.css";
 
@@ -22,7 +22,8 @@ const BuyActionWindow = ({ uid, mode }) => {
     }
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/orders`, {
+      const endpoint = (mode === "BUY" ? "/orders/buy" : "/orders/sell");
+      await api.post(endpoint, {
         name: uid,
         qty: Number(stockQuantity),
         price: Number(stockPrice),
@@ -37,10 +38,10 @@ const BuyActionWindow = ({ uid, mode }) => {
       notifyDataChange();
       mode === "BUY" ? closeBuyWindow() : closeSellWindow();
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.error) {
-        toast.error(error.response.data.error);
+      if (error.response?.data?.message) {
+          toast.error(error.response.data.message);
       } else {
-        toast.error("Order failed. Please try again.");
+          toast.error("Order failed. Please try again.");
       }
       console.error(error);
     }
