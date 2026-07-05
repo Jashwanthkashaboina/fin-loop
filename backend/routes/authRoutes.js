@@ -11,10 +11,10 @@ router.post("/signup", signUp);
 router.post('/login', login);
 
 // Production
-// router.get('/me', verifyToken, getCurrentUser);
+router.get('/me', verifyToken, getCurrentUser);
 
 // Development
-router.get('/me', getCurrentUser);
+// router.get('/me', getCurrentUser);
 
 // GET users
 router.get("/", verifyToken, getUsers);
