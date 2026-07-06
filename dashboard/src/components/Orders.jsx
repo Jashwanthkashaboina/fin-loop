@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import api from '../api/axios';
 import GeneralContext from "./GeneralContext";
 
 function Orders() {
@@ -8,8 +8,8 @@ function Orders() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/orders`)
+    api
+      .get('/orders')
       .then((res) => setOrders(res.data))
       .catch((err) => console.error(err));
   }, [dataChanged]);
