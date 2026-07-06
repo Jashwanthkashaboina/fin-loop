@@ -124,3 +124,17 @@ module.exports.sellOrder = async(req, res) =>{
         });
     }
 }
+
+module.exports.getOrders = async(req, res) =>{
+    try{
+        // const userId = req.user.id;
+        const userId = "6a477d5f057e32505547b2de";
+        const orders = await Order.find({ userId });
+
+        console.log("Orders : ", orders);
+        res.status(200).json(orders);
+    } catch(err){
+        console.log('Error at Order Fetching : ', err);
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
+}
