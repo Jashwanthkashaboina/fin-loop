@@ -14,14 +14,19 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, {
-        username,
-        password,
-      });
-      
-      localStorage.setItem("token", res.data.token);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, 
+      {  username, password  },
+      { withCredentials: true } // If this request has cookies for this backend, include them with the request.
+    );
+      console.log("Response:", res.data);
+
+      // localStorage.setItem("token", res.data.token);
+
+      // console.log("Stored token:", localStorage.getItem("token"));
+
     
       toast.success(res.data.message);
+      console.log(localStorage.getItem("token"));
 
       await fetchUser();   //  update global auth state
       navigate("/");       // stay on landing page

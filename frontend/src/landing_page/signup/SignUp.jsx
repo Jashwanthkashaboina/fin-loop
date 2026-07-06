@@ -15,11 +15,10 @@ function SignUp() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, {
-        username,
-        email,
-        password,
-      });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, 
+        { username, email, password, },
+        { withCredentials: true }
+      );
 
       toast.success(`Welcome, ${res.data.user.username}!`); // ===user.username===
       await fetchUser();     //auto-login into context
