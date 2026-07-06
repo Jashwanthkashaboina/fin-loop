@@ -7,12 +7,16 @@ function Orders() {
   const { dataChanged } = useContext(GeneralContext);
   const [orders, setOrders] = useState([]);
 
-  useEffect(() => {
-    api
-      .get('/orders')
-      .then((res) => setOrders(res.data))
-      .catch((err) => console.error(err));
-  }, [dataChanged]);
+  useEffect(() =>{
+    api.get('/orders')
+      .then((res) =>{
+        console.log(res.data);
+        setOrders(res.data);
+      })
+      .catch((err) =>{
+        console.log('Error at order fetching : ', err);
+      }, [dataChanged]);
+  })
 
   if (orders.length === 0) {
     return (

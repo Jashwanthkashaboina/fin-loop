@@ -4,7 +4,6 @@ const Holding = require('../models/Holding');
 module.exports.getAllHoldings = async(req, res) =>{
     try{
         const userId = req.user.id;
-        // const { userId } = req.query;
 
         const holdings = await Holding.find({ userId });
 

@@ -5,7 +5,6 @@ module.exports.getSummary = async (req, res) => {
         // const { userId } = req.body;
         const userId = req.user.id;
         const holdings = await Holding.find({ userId });
-        console.log("Holdings:", holdings);
 
         let totalInvestment = 0;
         let currentValue = 0;

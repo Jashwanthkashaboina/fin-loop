@@ -20,7 +20,6 @@ function Holdings() {
     useEffect(() =>{
         api.get('/holdings')
             .then((res) =>{
-                // console.log("Working !");
                 setallHoldings(res.data);
             })
     }, [dataChanged]); // whenever dataChanged changes, this useEffect will re-run

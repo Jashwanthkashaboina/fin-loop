@@ -43,10 +43,6 @@ function Home() {
     // checkAuth();
   }, []);
 
-  // if (checking) {
-  //   return <h3 style={{ padding: "20px" }}>Loading dashboard...</h3>;
-  // }
-
   return (
     <>
       <TopBar />

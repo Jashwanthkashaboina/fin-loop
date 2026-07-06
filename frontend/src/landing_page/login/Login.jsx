@@ -18,12 +18,6 @@ function Login() {
       {  username, password  },
       { withCredentials: true } // If this request has cookies for this backend, include them with the request.
     );
-      console.log("Response:", res.data);
-
-      // localStorage.setItem("token", res.data.token);
-
-      // console.log("Stored token:", localStorage.getItem("token"));
-
     
       toast.success(res.data.message);
       console.log(localStorage.getItem("token"));
