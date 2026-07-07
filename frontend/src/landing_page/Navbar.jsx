@@ -24,13 +24,17 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
-      <div className="container p-2">
+    <nav className="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+      <div className="container">
         <Link className="navbar-brand" to="/">
           <img
-            src="media/images/logo.svg"
+            src="media/images/FinLoop_Logo.png"
             alt="LOGO"
-            style={{ width: "25%" }}
+            style={{ 
+              height: "60px",
+              width: "auto",
+              // objectFit: "contain",
+            }}
           />
         </Link>
 
@@ -44,7 +48,7 @@ function Navbar() {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto align-items-center gap-4">
 
             {!user && (
               <>

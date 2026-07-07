@@ -11,7 +11,7 @@ function Awards() {
                 <div className="col-6 p-5 mt-3">
                     <h1>Largest Broker in India</h1>
                     <p className='mb-5'>
-                        2M+ Zerodha clients contribute to over 15% of all retail order vloume in india daily by 
+                        2M+ FinLoop clients contribute to over 15% of all retail order vloume in india daily by 
                         trading and investing in:
                     </p>
                     <div className="row">

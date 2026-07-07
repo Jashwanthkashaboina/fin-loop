@@ -8,7 +8,7 @@ function Footer() {
                     <div className="col mt-5">
                         <img src='media/images/logo.svg' style={{ width: "70%" }} className='mb-4'/>
                         <p>
-                            &copy;2010 - 2025, Zerodha Broking Ltd.
+                            &copy;2010 - 2025, FinLoop Broking Ltd.
                             All rights reserved.
                         </p>
                     </div>
@@ -22,9 +22,9 @@ function Footer() {
                             <br/>
                             <a href='#'> Careers</a>
                             <br/>
-                            <a href='#'> Zerodha Cares (CSR)</a>
+                            <a href='#'> FinLoop Cares (CSR)</a>
                             <br/>
-                            <a href='#'> Zerodha.tech</a>
+                            <a href='#'> FinLoop.tech</a>
                             <br/>
                             <a href='#'> Open source</a>
                     </div>
@@ -57,8 +57,10 @@ function Footer() {
                 </div>
                 <div className='text-small text-muted  mt-5' style={{ fontSize: "0.95rem" }}>
                     <p>
-                        Zerodha Broking Ltd.: Member of NSE, BSE MCX  SEBI Registration no.: INZ000031633 CDSL/NSDL: Depository services through Zerodha Broking Ltd. 
-                        SEBI Registration no.: IN-DP-431-2019 Registered Address: Zerodha Broking Ltd., #153/154, 4th Cross, Dollars Colony, Opp. Clarence Public School, J.P Nagar 4th Phase, Bengaluru - 560078, Karnataka, India. For any complaints pertaining to securities broking please write to complaints@zerodha.com, for DP related to dp@zerodha.com. Please ensure you carefully read the Risk Disclosure Document as prescribed by SEBI | ICF
+                        FinLoop Broking Ltd.: Member of NSE, BSE MCX  SEBI Registration no.: INZ000031633 CDSL/NSDL: Depository services through FinLoop Broking Ltd. 
+                        SEBI Registration no.: IN-DP-431-2019 Registered Address: FinLoop Broking Ltd., #153/154, 4th Cross, Dollars Colony, Opp. Clarence Public School,
+                        J.P Nagar 4th Phase, Bengaluru - 560078, Karnataka, India. For any complaints pertaining to securities broking please write to complaints@FinLoop.com, for DP related to dp@FinLoop.com. 
+                        Please ensure you carefully read the Risk Disclosure Document as prescribed by SEBI | ICF
                     </p>  
                     <p>
                         Smart Online Dispute Resolution | Grievances Redressal Mechanism
@@ -82,7 +84,7 @@ function Footer() {
                         there is no need to issue a cheque. Please write the Bank account number and sign the IPO application form to authorize your bank to make 
                         payment in case of allotment. In case of non allotment the funds will remain in your bank account. 
                         As a business we don't give stock tips, and have not authorized anyone to trade on behalf of others. 
-                        If you find anyone claiming to be part of Zerodha and offering such services, please create a ticket here.
+                        If you find anyone claiming to be part of FinLoop and offering such services, please create a ticket here.
                         <br/><br/>
                         *Customers availing insurance advisory services offered by Ditto 
                         (Tacterial Consulting Private Limited | IRDAI Registered Corporate Agent (Composite) License No CA0738) 

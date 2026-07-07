@@ -22,7 +22,7 @@ function ProductsPage() {
             <RightImage 
                 imageURL="media/images/console.png"
                 productName="Console" 
-                productDescription="The central dashboard for your Zerodha account. 
+                productDescription="The central dashboard for your FinLoop account. 
                 Gain insights into your trades and investments with in-depth reports and visualisations." 
                 linkText="Learn More"
             />
@@ -53,7 +53,7 @@ function ProductsPage() {
                 googlePlay="" 
                 appStore=""
             />
-            <p className='text-center'>Want to know more about our technology stack? Check out the <a href='#'>Zerodha.tech</a> blog.</p>
+            <p className='text-center'>Want to know more about our technology stack? Check out the <a href='#'>FinLoop.tech</a> blog.</p>
             <Universe/>
         </>
      );

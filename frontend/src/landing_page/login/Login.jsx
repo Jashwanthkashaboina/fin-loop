@@ -30,7 +30,7 @@ function Login() {
   };
 
   return (
-    <AuthLayout title="Login into Zerodha">
+    <AuthLayout title="Login into FinLoop">
       <form onSubmit={handleSubmit}>
         <input
           type="text"

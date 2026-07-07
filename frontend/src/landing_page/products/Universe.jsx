@@ -4,12 +4,12 @@ function Universe() {
     return ( 
         <div className="container mt-5 text-center">
             <div className="row">
-                <h3 className='fw-semibold'>The Zerodha Universe</h3>
+                <h3 className='fw-semibold'>The FinLoop Universe</h3>
                 <p>Extend your trading and investment experience even further with our partner platforms</p>
                 <div className="col-4 p-3 mt-5">
                     <img 
                         src='media/images/zerodhaFundhouse.png' 
-                        alt='Zerodha Fund House' 
+                        alt='FinLoop Fund House' 
                         style={{ width: "60%" }}
                         className='mb-4  text-small text-muted'
                     />
@@ -18,7 +18,7 @@ function Universe() {
                 <div className="col-4 p-3 mt-5">
                     <img 
                         src='media/images/sensibullLogo.svg' 
-                        alt='Zerodha Fund House' 
+                        alt='FinLoop Fund House' 
                         style={{ width: "60%" }}
                         className='mb-4 text-small text-muted'
                     />
@@ -45,7 +45,7 @@ function Universe() {
                 <div className="col-4 p-3 mt-5" >
                     <img 
                         src='media/images/dittoLogo.png' 
-                        alt='Zerodha Fund House' 
+                        alt='FinLoop Fund House' 
                         style={{ width: "30%" }}
                         className='mb-4'
                     />

@@ -10,7 +10,7 @@ function Stats() {
                     <h1 className='fs-2 mb-5'>Trust with Confidence</h1>
                         <h3 className='fs-4'>Customer-first always</h3>
                         <p className='text-muted'> 
-                            That's why 1.3+ crore customers trust zerodha 
+                            That's why 1.3+ crore customers trust FinLoop 
                             with &#8377;3.5+ lakh crores worth of equity investments
                         </p>
                         <h3 className='fs-4'>No spam or gimmicks</h3>
@@ -18,7 +18,7 @@ function Stats() {
                             No gimmicks, spam, "gamification", or annoying push
                             notifications. High quality at your pace,the way you like
                         </p>
-                        <h3 className='fs-4'>The Zerodha Universe</h3>
+                        <h3 className='fs-4'>The FinLoop Universe</h3>
                         <p className='text-muted'>
                             Not just a app, but whole ecosystem.Our investments in 30+
                             fintech startups offer you tailored services specific to your needs.

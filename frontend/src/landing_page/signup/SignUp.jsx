@@ -31,7 +31,7 @@ function SignUp() {
   };
 
   return (
-    <AuthLayout title="Sign Up for Zerodha">
+    <AuthLayout title="Sign Up for FinLoop">
     <form onSubmit={handleSubmit}>
       <input
         placeholder="username"
