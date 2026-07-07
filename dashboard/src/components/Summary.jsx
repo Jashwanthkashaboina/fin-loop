@@ -4,6 +4,7 @@ import api from "../api/axios";
 
 function Summary() {
     const [summary, setSummary] = useState({
+        username: "",
         totalInvestment: 0,
         currentValue: 0,
         pnl: 0,
@@ -23,11 +24,11 @@ function Summary() {
     return ( 
         <>
             <div className="username">
-                <h6>Hi, User!</h6>
+                <h6>Hi, { summary.username }!</h6>
                 <hr className="divider" />
             </div>
 
-            <div className="section">
+            {/* <div className="section">
                 <span> <p>Equity</p> </span>
 
                 <div className="data">
@@ -43,7 +44,7 @@ function Summary() {
                 </div>
                 </div>
                 <hr className="divider" />
-            </div>
+            </div> */}
 
             <div className="section">
                 <span> <p>Holdings (13)</p> </span>

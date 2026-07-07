@@ -669,7 +669,7 @@ hr {
   cursor: pointer;
 }
 
-.watchlist-container {
+/* .watchlist-container {
   flex-basis: 32%;
   height: 100%;
   box-sizing: border-box;
@@ -683,7 +683,7 @@ hr {
   height: 100%;
   box-shadow: 0px 0px 4px 1px rgb(236, 235, 235);
   overflow-y: auto;
-}
+} */
 
 
 .search-container {
@@ -888,3 +888,33 @@ hr {
 }
 
 
+/* ---------- Resizable Sidebar ---------- */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.watchlist-wrapper {
+    flex-shrink: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.resize-bar {
+    width: 5px;
+    cursor: col-resize;
+    background: #f1f1f1;
+    transition: background 0.2s;
+}
+
+.resize-bar:hover {
+    background: #4184f3;
+}
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    min-width: 0;
+}

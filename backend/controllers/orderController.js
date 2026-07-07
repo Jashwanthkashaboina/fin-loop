@@ -7,6 +7,10 @@ module.exports.placeOrder = async(req, res) =>{
         const userId = req.user.id;
         // const userId = "6a477d5f057e32505547b2de";
         const { name, qty, price, mode } = req.body;
+
+        if(!name?.trim() || qty <= 0 || price <= 0 || mode !== "BUY"){
+            return res.status(400).json({ message: "Invalid order data" });
+        }
         
         const newOrder = new Order({
             userId,
@@ -15,7 +19,7 @@ module.exports.placeOrder = async(req, res) =>{
             price,
             mode
         });
-        console.log(newOrder);
+        // console.log(newOrder);
 
         await newOrder.save();
 
@@ -73,6 +77,10 @@ module.exports.sellOrder = async(req, res) =>{
         const { name, qty, price, mode } = req.body;
         // const userId = "6a477d5f057e32505547b2de";
 
+        if(!name?.trim() || qty <= 0 || price <= 0 || mode !== "SELL"){
+            return res.status(400).json({ message: "Invalid order data" });
+        }
+
         const existingHolding = await Holding.findOne({
             userId,
             name,
@@ -127,8 +135,8 @@ module.exports.sellOrder = async(req, res) =>{
 
 module.exports.getOrders = async(req, res) =>{
     try{
-        // const userId = req.user.id;
-        const userId = "6a477d5f057e32505547b2de";
+        const userId = req.user.id;
+        // const userId = "6a477d5f057e32505547b2de";
         const orders = await Order.find({ userId });
 
         console.log("Orders : ", orders);
