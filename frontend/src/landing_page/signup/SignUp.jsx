@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import api from "../../../../dashboard/src/api/axios";
+import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
@@ -15,7 +15,7 @@ function SignUp() {
     e.preventDefault();
 
     try {
-      const res = await api.post(`${import.meta.env.VITE_API_URL}/auth/signup`, 
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, 
         { username, email, password, },
         { withCredentials: true }
       );
