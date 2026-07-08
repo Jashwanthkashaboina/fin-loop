@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 module.exports.verifyToken = async(req, res, next) =>{
+    // console.log("Cookies:", req.cookies);
+
     const token = req.cookies.token;
 
     if (!token) {

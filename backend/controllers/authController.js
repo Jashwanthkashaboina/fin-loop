@@ -35,7 +35,7 @@ const signUp = async (req, res) =>{
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,      // for localhost use secure : false & deployment : true
-            sameSite: "lax",
+            sameSite: "none",
             maxAge: 24 * 60 * 60 * 1000,
         });
 
@@ -91,7 +91,7 @@ const login = async (req, res) =>{
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,      // for localhost use : false & deployment : true
-            sameSite: "lax",
+            sameSite: "none",
             maxAge: 24 * 60 * 60 * 1000,
         });
 
