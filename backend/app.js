@@ -7,9 +7,9 @@ const cookieParser = require("cookie-parser");
 
 const userRoutes = require('./routes/authRoutes.js');
 const orderRoutes = require('./routes/orderRoutes.js');
-const holdingRoutes = require("./routes/holdingRoutes");
+const holdingRoutes = require('./routes/holdingRoutes');
 const summaryRoutes = require('./routes/summaryRoutes.js');
-const watchlistRoutes = require("./routes/watchlistRoutes");
+const watchlistRoutes = require('./routes/watchListRoutes');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
