@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const Order = require("../models/Order");
 const Holding = require("../models/Holding");
-const Watchlist = require("../models/Watchlist");
+const Watchlist = require("../models/WatchList");
 
 
 const signUp = async (req, res) =>{
