@@ -14,8 +14,8 @@ function Orders() {
       })
       .catch((err) =>{
         console.log('Error at order fetching : ', err);
-      }, [dataChanged]);
-  })
+      });
+  }, [dataChanged])
 
   if (orders.length === 0) {
     return (

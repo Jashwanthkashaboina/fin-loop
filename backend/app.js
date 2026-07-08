@@ -22,11 +22,12 @@ app.use(cors({
     credentials: true,
 }));
 
-app.use((req, res, next) => {
-    console.log(req.method, req.url);
-    console.log("Content-Type:", req.headers["content-type"]);
-    next();
-});
+if (process.env.NODE_ENV === "development") {
+    app.use((req, res, next) => {
+        console.log(`${req.method} ${req.url}`);
+        next();
+    });
+}
 
 app.use('/auth', userRoutes);
 app.use('/orders', orderRoutes);
