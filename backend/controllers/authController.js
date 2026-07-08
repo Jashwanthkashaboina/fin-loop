@@ -1,6 +1,9 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const Order = require("../models/Order");
+const Holding = require("../models/Holding");
+const Watchlist = require("../models/Watchlist");
 
 
 const signUp = async (req, res) =>{
@@ -142,4 +145,33 @@ const getCurrentUser = async (req, res) => {
     res.status(200).json(user);
 };
 
-module.exports = { signUp, login, getUsers, getUserById, getCurrentUser };
+const getProfile = async(req, res) =>{
+    try{
+        const userId = req.user.id;
+        const user = await User.findById(userId).select("-password");;
+    
+        const orders = await Order.countDocuments({ userId });
+    
+        const holdings = await Holding.countDocuments({ userId });
+    
+        const watchlist = await Watchlist.countDocuments();
+    
+        return res.json({
+            username: user.username,
+            email: user.email,
+            createdAt: user.createdAt,
+    
+            stats: {
+                orders,
+                holdings,
+                watchlist,
+            },
+        });
+    } catch(err) {
+        console.log("Error occured at profile fetching : ", err);
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
+}
+
+
+module.exports = { signUp, login, getUsers, getUserById, getCurrentUser, getProfile };

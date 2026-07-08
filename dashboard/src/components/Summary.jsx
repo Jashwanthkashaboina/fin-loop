@@ -25,7 +25,26 @@ function Summary() {
     return ( 
         <>
             <div className="username">
-                <h6>Hi, { summary.username }!</h6>
+                <h6
+                    style={{
+                        fontSize: "3rem",
+                        fontWeight: 300,
+                        marginBottom: "10px",
+                    }}
+                >
+                    Hi, { summary.username }!
+                </h6>
+                <p
+                    style={{
+                        fontSize: "16px",
+                        fontWeight: 400,
+                        color: "#666",
+                        lineHeight: 1.6,
+                        marginBottom: "10px",
+                    }}
+                >
+                    Track your portfolio, monitor market trends, and make smarter investment decisions.
+                </p>
                 <hr className="divider" />
             </div>
 
