@@ -2,13 +2,13 @@
 // import { positions } from "../data/data.jsx";
 import axios from "axios";
 import { useState,useEffect } from "react";
-
+import api from "../api/axios";
 function Positions() {
     // Now, fetch the data
     const [allPositions, setallPositions] = useState([]);
    
     useEffect(() =>{
-        axios.get(`${import.meta.env.VITE_API_URL}/allpositions`)
+        api.get('/positions')
             .then((res) =>{
                 console.log("Working !");
                 setallPositions(res.data);
