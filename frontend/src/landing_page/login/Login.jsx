@@ -20,7 +20,7 @@ function Login() {
     );
     
       toast.success(res.data.message);
-      console.log(localStorage.getItem("token"));
+      // console.log(localStorage.getItem("token"));
 
       await fetchUser();   //  update global auth state
       navigate("/");       // stay on landing page
