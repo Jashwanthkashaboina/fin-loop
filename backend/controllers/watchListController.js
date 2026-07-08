@@ -1,8 +1,8 @@
-const Watchlist = require("../models/Watchlist");
+const WatchList = require("../models/WatchList");
 
 module.exports.getWatchlist = async (req, res) => {
     try {
-        const watchlist = await Watchlist.find({ });
+        const watchlist = await WatchList.find({ });
 
         return res.status(200).json(watchlist);
 
