@@ -1,7 +1,6 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const User = require("../models/User");
 const Order = require("../models/Order");
 const Holding = require("../models/Holding");
 const Watchlist = require("../models/Watchlist");
