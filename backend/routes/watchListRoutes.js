@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getWatchlist } = require("../controllers/watchlistController");
+const { getWatchlist } = require("../controllers/watchListController");
 const { verifyToken } = require('../middleware');
 
 // Production
