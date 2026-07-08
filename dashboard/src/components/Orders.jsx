@@ -10,7 +10,6 @@ function Orders() {
   useEffect(() =>{
     api.get('/orders')
       .then((res) =>{
-        console.log(res.data);
         setOrders(res.data);
       })
       .catch((err) =>{

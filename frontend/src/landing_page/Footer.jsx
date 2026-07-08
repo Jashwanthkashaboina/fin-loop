@@ -8,7 +8,7 @@ function Footer() {
                     <div className="col mt-5">
                         <img src='media/images/logo.svg' style={{ width: "70%" }} className='mb-4'/>
                         <p>
-                            &copy;2010 - 2025, FinLoop Broking Ltd.
+                            &copy;2026 - 2027, FinLoop Broking Ltd.
                             All rights reserved.
                         </p>
                     </div>

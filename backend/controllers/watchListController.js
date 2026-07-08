@@ -2,10 +2,7 @@ const Watchlist = require("../models/Watchlist");
 
 module.exports.getWatchlist = async (req, res) => {
     try {
-        const userId = req.user.id;
-
-        const watchlist = await Watchlist.find({ userId });
-
+        const watchlist = await Watchlist.find({ });
 
         return res.status(200).json(watchlist);
 

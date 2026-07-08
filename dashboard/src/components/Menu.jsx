@@ -73,13 +73,6 @@ function Menu() {
               </p>
             </Link>
           </li>
-          <li>
-            <Link style={{ textDecoration: "none" }} to="/apps" onClick={() => handleMenuClick(5)}>
-              <p className={ selectedMenu === 5 ? activeMenuClass : menuClass }>
-                Apps
-              </p>
-            </Link>
-          </li>
         </ul>
 
         <hr />

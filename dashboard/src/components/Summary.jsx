@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { DoughnutChart } from './DoughnutChart.jsx';
 import api from "../api/axios";
 
 
@@ -47,7 +48,7 @@ function Summary() {
             </div> */}
 
             <div className="section">
-                <span> <p>Holdings (13)</p> </span>
+                <span> <p>Holdings</p> </span>
 
                 <div className="data">
                     <div className="first">

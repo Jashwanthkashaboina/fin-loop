@@ -18,7 +18,7 @@ function CreateTicket() {
                     <a href='' style={{ lineHeight: "2" }}>Glossary</a>
                 </div>
                 <div className="col-4 p-3">
-                    <h5 className='mb-3'><i class="fa-solid fa-user fa-0.3x"></i>  Your Zerodha Account</h5>
+                    <h5 className='mb-3'><i class="fa-solid fa-user fa-0.3x"></i>  Your FinLoop Account</h5>
                     <a href='' style={{ lineHeight: "2" }}>Your Profile</a><br/>
                     <a href='' style={{ lineHeight: "2" }}>Account Modification</a><br/>
                     <a href='' style={{ lineHeight: "2" }}>Nomination</a><br/>
