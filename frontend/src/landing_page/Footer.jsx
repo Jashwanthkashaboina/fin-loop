@@ -6,7 +6,7 @@ function Footer() {
             <div className="container">
                 <div className="row border-top mt-5">
                     <div className="col mt-5">
-                        <img src='media/images/logo.svg' style={{ width: "70%" }} className='mb-4'/>
+                        <img src='media/images/FinLoop_Logo.png' style={{ width: "70%" }} className='mb-4'/>
                         <p>
                             &copy;2026 - 2027, FinLoop Broking Ltd.
                             All rights reserved.
